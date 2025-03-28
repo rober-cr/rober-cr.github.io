@@ -1,0 +1,63 @@
+---
+layout: default
+title: Concurso de las 3 Puertas
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concurso de las 3 Puertas</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+        .door {
+            width: 150px;
+            height: 250px;
+            margin: 10px;
+            background: url('{{ site.baseurl }}/assets/door-closed.png') no-repeat center;
+            background-size: cover;
+            cursor: pointer;
+            transition: background 0.5s;
+        }
+        .door.open {
+            background: none;
+        }
+        .door img {
+            display: none;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Elige una puerta</h1>
+    <div class="container">
+        <div class="door" onclick="openDoor(this, '{{ site.baseurl }}/assets/prize1.png')">
+            <img src="{{ site.baseurl }}/assets/prize1.png" alt="Premio 1">
+        </div>
+        <div class="door" onclick="openDoor(this, '{{ site.baseurl }}/assets/prize2.png')">
+            <img src="{{ site.baseurl }}/assets/prize2.png" alt="Premio 2">
+        </div>
+        <div class="door" onclick="openDoor(this, '{{ site.baseurl }}/assets/prize3.png')">
+            <img src="{{ site.baseurl }}/assets/prize3.png" alt="Premio 3">
+        </div>
+    </div>
+
+    <script>
+        function openDoor(element, imagePath) {
+            element.classList.add('open');
+            const img = element.querySelector('img');
+            img.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
